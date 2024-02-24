@@ -61,7 +61,6 @@ class csvHandler():
                 print(rows)
 
     def menu(self):
-        handle1 = csvHandler()
         i = 0
         fname = input("Enter The File Name: ")
         while True:
@@ -83,13 +82,13 @@ class csvHandler():
                     else:
                         finalInput = userInput.split(',')
                         inputlist.append(finalInput)
-                handle1.writeData(fname, inputlist)
+                self.writeData(fname, inputlist)
             elif choice == 2:
-                handle1.readData(fname)
+                self.readData(fname)
             elif choice == 3:
                 rowIndex = input("Enter The Row Number to Delete: ")
                 rowIndex = int(rowIndex)
-                handle1.deleteData(fname, rowIndex - 1)
+                self.deleteData(fname, rowIndex - 1)
             elif choice == 4:
                 while True:
                     inputlist = []
@@ -99,24 +98,24 @@ class csvHandler():
                     else:
                         finalInput = userInput.split(',')
                         inputlist.append(finalInput)
-                    handle1.appendData(fname, inputlist)
+                    self.appendData(fname, inputlist)
             elif choice == 5:
                 nameToSearch = input("Enter the Name to Search: ")
-                found = handle1.searchByName(fname, nameToSearch)
+                found = self.searchByName(fname, nameToSearch)
                 if found:
                     print(nameToSearch, "Found!!!")
                 else:
                     print(nameToSearch, "Not Found!!!")
             elif choice == 6:
                 cityToSearch = input("Enter the City to Search: ")
-                found = handle1.searchByCity(fname, cityToSearch)
+                found = self.searchByCity(fname, cityToSearch)
                 if found:
                     print(cityToSearch, "Found!!!")
                 else:
                     print(cityToSearch, "Not Found!!!")
             elif choice == 7:
                 occupationToSearch = input("Enter the Occupation to Search: ")
-                found = handle1.searchByOccupation(fname, occupationToSearch)
+                found = self.searchByOccupation(fname, occupationToSearch)
                 if found:
                     print(occupationToSearch, "Found!!!")
                 else:
